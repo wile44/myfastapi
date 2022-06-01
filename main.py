@@ -1,5 +1,11 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Depends, Body
 import schemas
+import models
+
+from database import Base, engine, SessionLocal
+from sqlalchemy.orm import Session
+
+Base.metadata.create_all(engine)
 
 app = FastAPI()
 
